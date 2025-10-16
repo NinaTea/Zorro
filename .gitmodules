@@ -1,0 +1,3 @@
+[submodule "tree-sitter-circom"]
+	path = tree-sitter-circom
+	url = https://github.com/Decurity/tree-sitter-circom.git
