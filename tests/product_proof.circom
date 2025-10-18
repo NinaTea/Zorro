@@ -4,7 +4,7 @@ template ProductProof(){
     signal input a;
     signal input b;
     signal output c;
-    // todo : add constraint
+    // TODO: revise
     c <== a * b;
 }
 

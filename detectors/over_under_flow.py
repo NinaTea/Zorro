@@ -53,12 +53,14 @@ class ToDoComment(Visitor):
 
     def __init__(self, print_output: bool = True):
         super().__init__(print_output)
-        self.MSG = "Remove TODO: comment before deploying contract"
+        self.MSG = "Remove TODO: comment before deploying circuit"
         self.HELP = None
         self.FOOTNOTE = None
 
     def visit_node(self, node: Node, run_number: int):
         if node.grammar_name == "comment":
-            if "todo" in node.text.decode("utf-8"):
-                # print("Remove TODO comment")
+            text = node.text.decode("utf-8").lower()
+            text = text.split()
+
+            if text[1] in ["todo", "todo:"]:
                 self.add_finding(node, node)
