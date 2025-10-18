@@ -45,3 +45,20 @@ lt.out === 1;
 Here, Num2Bits(n) is used as a range check to ensure that the input lies in the interval [0, 2^n). In particular, if n is small enough this ensures that the input is positive. If we forgot these range checks a malicious user could input a withdrawAmount equal to p - 1. This would satisfy the constraints defined by LessThan as long as the current balance is non-negative since p - 1 = -1 < currentBalance.
 
 """
+from tree_sitter import Node
+from visitor import Visitor
+
+
+class ToDoComment(Visitor):
+
+    def __init__(self, print_output: bool = True):
+        super().__init__(print_output)
+        self.MSG = "Remove TODO: comment before deploying contract"
+        self.HELP = None
+        self.FOOTNOTE = None
+
+    def visit_node(self, node: Node, run_number: int):
+        if node.grammar_name == "comment":
+            if "todo" in node.text.decode("utf-8"):
+                # print("Remove TODO comment")
+                self.add_finding(node, node)
