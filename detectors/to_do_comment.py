@@ -47,6 +47,7 @@ Here, Num2Bits(n) is used as a range check to ensure that the input lies in the 
 """
 from tree_sitter import Node
 from visitor import Visitor
+import re
 
 
 class ToDoComment(Visitor):
@@ -58,9 +59,10 @@ class ToDoComment(Visitor):
         self.FOOTNOTE = None
 
     def visit_node(self, node: Node, run_number: int):
-        if node.grammar_name == "comment":
-            text = node.text.decode("utf-8").lower()
-            text = text.split()
+        # why 6?
+        if run_number == 6:
+            if node.grammar_name == "comment":
+                text = node.text.decode("utf-8")[2:]
 
-            if text[1] in ["todo", "todo:"]:
-                self.add_finding(node, node)
+                if re.search(r"^todo:|TODO:|TODO", text):
+                    self.add_finding(node, node)

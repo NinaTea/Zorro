@@ -8,7 +8,7 @@ import re
 CIRCOM = Language(
     "tree-sitter-circom/build/lib.linux-x86_64-cpython-310/tree_sitter_circom/_binding.abi3.so", "circom")
 
-__TIMES__ = 1
+__TIMES__ = 3
 
 
 class LinterRunner:
@@ -50,7 +50,7 @@ class LinterRunner:
         self.iterator = NodeIterator(self.root_node)
 
     def run(self):
-        self.pre_run_checks()
+
         for i in range(__TIMES__):
             self.round_number = self.round_number + 1
 
@@ -58,15 +58,11 @@ class LinterRunner:
                 self.run_lints(node)
             self.reset_cursor()
 
-        self.post_run_checks()
+        # Call post_process method for lints that have it
+        for lint in self.lints:
+
+            if hasattr(lint, 'post_process'):
+                lint.post_process()
 
         return [finding for lint in self.lints
                 for finding in lint.get_findings()]
-
-    def pre_run_checks(self):
-        # Add any pre-run validation here if needed
-        pass
-
-    def post_run_checks(self):
-        # Add any post-run validation here if needed
-        pass

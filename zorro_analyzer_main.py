@@ -45,7 +45,7 @@ class Analyzer:
         def comma_separated_list(value):
             return value.split(',')
 
-        class StacyParser(argparse.ArgumentParser):
+        class ZorroParser(argparse.ArgumentParser):
             def format_help(self):
                 formatter = self._get_formatter()
                 formatter.add_text(self.description)
@@ -66,7 +66,7 @@ class Analyzer:
 
                 return formatter.format_help()
 
-        arg_parser = StacyParser(
+        arg_parser = ZorroParser(
             description='Zorro - Static Analyzer for Circom circuits')
         subparsers = arg_parser.add_subparsers(
             dest="command", help="Available commands")
@@ -85,7 +85,6 @@ class Analyzer:
                                  help="Print x lines of leading context before findings")
         lint_parser.add_argument("-C", type=int, metavar="x",
                                  help="Print x lines of leading and trailing context (overrides -A and -B)")
-
         list_detectors = subparsers.add_parser(
             "detectors", help="List available detectors")
 

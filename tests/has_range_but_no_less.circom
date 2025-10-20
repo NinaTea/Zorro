@@ -1,0 +1,20 @@
+pragma circom 2.0.0;
+
+template MoneyMoneyMoney(){
+
+   signal input currentBalance;
+   signal input withdrawAmount;
+   signal output newBalance;
+    
+    // Ensure that both values are positive.
+    component n2b1 = Num2Bits(64);
+    n2b1.in <== withdrawAmount;
+
+    component n2b2 = Num2Bits(64);
+    n2b2.in <== currentBalance;
+
+    newBalance <== currentBalance - withdrawAmount;
+
+}
+
+component main = MoneyMoneyMoney();	
