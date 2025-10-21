@@ -16,7 +16,7 @@ This is software intended to detect unwated patterns or bad practices.
 # How to use
 
 1. Clone this repository
-2. Maka directory with your circuits
+2. Make directory with your circuits
 3. Run this command
 
 ```code
@@ -36,5 +36,5 @@ example:
 | Detector | Bug Type | Test Cases |
 -----------|----------|------------| 
 | [to_do_comment](detectors/to_do_comment.py) | 1 | [1](tests/product_proof.circom) |
-| [has_range_check](detectors/has_range_check.py) | 2 | [1](tests/product_proof.circom) |
-| [has_less_than_check](detectors/has_less_than_check.py) | 2 | [1](tests/product_proof.circom) |
+| [has_range_check](detectors/has_range_check.py) | 2 | [1](tests/insecure_substraction.circom) |
+| [has_less_than_check](detectors/has_less_than_check.py) | 2 | [1](tests/has_range_but_no_less.circom) |
