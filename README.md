@@ -1,7 +1,7 @@
 <!-- ![alt text](logo/logo.png =100) -->
 
 
-# <img src="logo/logo.png" width="100"> Zorro - Static Analyzer for Circom DSL
+# <img src="logo/Diseño sin título(2).png" width="100"> Zorro - Static Analyzer for Circom DSL
 ------------
 
 ## WIP
