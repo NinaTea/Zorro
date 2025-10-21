@@ -1,24 +1,40 @@
 # Zorro - Static Analyzer for Circom DSL
 --------------------------
 
-## TODO
-- [] Revisar estado del arte de la gramatica para circom 
-- [] Implementar iterador de nodos
-- [] Implementar recorrer arboles AST
+## WIP
+
+This is a work in progress, feel free to contribute!
+- [Guidelines](Guidelines/guidelines.md)
 
 
-All the vulnerabilities that are check are from [zk-bug-tracker](https://github.com/0xPARC/zk-bug-tracker). Including examples and solutions.
+# Acknowledgements
 
-This is software to detect this unwated patterns in case you are writing your own circuit.
+All the vulnerabilities are from [zk-bug-tracker](https://github.com/0xPARC/zk-bug-tracker). Including examples and solutions.
 
-## Types of bugs 
+This is software intended to detect unwated patterns or bad practices.
 
-1. Under-constrained Circuits
-2. Nondeterministic Circuits
-3. Arithmetic Over/Under Flows
+# How to use
 
+1. Clone this repository
+2. Maka directory with your circuits
+3. Run this command
+
+```code
+~/Zorro$ python3 zorro_analyzer_main.py <your_directory/>
+```
+
+example:
+```code
+~/Zorro$ python3 zorro_analyzer_main.py tests/
+```
+
+## Detectors
+1. Bad practices
+2. Arithmetic Over/Under Flows
 
 
 | Detector | Bug Type | Test Cases |
 -----------|----------|------------| 
-| [over_under_flow](link a la documentacion del detector) | #numerito del tipo de bug que detecta | [1](link a circuito con el bug) |
+| [to_do_comment](detectors/to_do_comment.py) | 1 | [1](tests/product_proof.circom) |
+| [has_range_check](detectors/has_range_check.py) | 2 | [1](tests/product_proof.circom) |
+| [has_less_than_check](detectors/has_less_than_check.py) | 2 | [1](tests/product_proof.circom) |

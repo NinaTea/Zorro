@@ -35,8 +35,15 @@ def pretty_print_warn(visitor, parent: Node, specific_node: Node, msg: str, help
     start_line = max(0, line_number - leading_context - 1)
     end_line = min(total_lines, line_number + trailing_context)
 
-    print(f"Warning:{msg}")
-    print(f" {num_size_spaces}|")
+    # Colors
+    RED = "\033[91m"  # Red for Warning
+    WHITE = "\033[97m"  # White for text
+    LIGHT_YELLOW = "\033[93m"  # Light yellow for arrows and notes
+    LIGHT_BLUE = "\033[1;34m"  # Light blue for borders
+    RESET = "\033[0m"
+
+    print(f"{RED}Warning:{RESET} {WHITE}{msg}{RESET}")
+    print(f" {LIGHT_BLUE}{num_size_spaces}|{RESET}")
 
     for i in range(start_line, end_line):
         current_line = i + 1
@@ -44,21 +51,24 @@ def pretty_print_warn(visitor, parent: Node, specific_node: Node, msg: str, help
         start_tabs = contract_code.count('\t') + 1
         contract_code = contract_code.replace('\t', '    ')
 
-        print(
-            f" {current_line} |{contract_code}")
+        if current_line == line_number:
+            print(
+                f" {LIGHT_BLUE}{current_line}{RESET} {LIGHT_BLUE}|{RESET}{WHITE}{contract_code}{RESET}")
+        else:
+            print(f" {LIGHT_BLUE}{current_line}{RESET} {LIGHT_BLUE}|{RESET}{WHITE}{contract_code}{RESET}")
 
         if current_line == line_number:
             arrows = "^" * (specific_node.end_point[1] -
                             specific_node.start_point[1])
             spaces = " " * \
                 ((specific_node.start_point[1] * start_tabs) + 1)
-            print(f" {num_size_spaces}|{spaces}{arrows}")
+            print(f" {LIGHT_BLUE}{num_size_spaces}|{RESET}{spaces}{LIGHT_YELLOW}{arrows}{RESET}")
             if help_msg is not None:
                 print(
-                    f" {num_size_spaces}|{spaces}{help_msg}")
+                    f" {LIGHT_BLUE}{num_size_spaces}|{RESET}{spaces}{LIGHT_YELLOW}{help_msg}{RESET}")
 
     if footnote is not None:
-        print(f" {num_size_spaces}Note:{footnote}")
+        print(f" {LIGHT_BLUE}{num_size_spaces}{RESET}{LIGHT_YELLOW}Note:{RESET} {WHITE}{footnote}{RESET}")
 
     print()
 

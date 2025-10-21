@@ -42,7 +42,7 @@ class Component():
         self.took_out = out
 
 
-class InsecureSubstraction(Visitor):
+class HasRangeCheck(Visitor):
     """
     A field element is a value in the domain of Z/pZ, where p is the prime number set by default to
 
