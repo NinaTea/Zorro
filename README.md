@@ -1,7 +1,5 @@
-<!-- ![alt text](logo/logo.png =100) -->
 
-
-# <img src="logo/Diseño sin título(2).png" width="150"> Zorro - Static Analyzer for Circom DSL
+# <img src="logo/logo.png" width="150"> Zorro - Static Analyzer for Circom DSL
 ------------
 
 ## WIP
@@ -18,8 +16,13 @@ This is software intended to detect unwated patterns or bad practices.
 
 # How to use
 
-1. Clone this repository
-2. Make directory with your circuits
+1. Clone this repository (remember it has a submodule!).
+```code
+~$ git clone --recursive git@github.com:NinaTea/Zorro.git
+
+```
+
+2. Make a directory at ~/Zorro$ with your circuits.
 3. Run this command
 
 ```code
