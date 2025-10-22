@@ -11,7 +11,7 @@ Create a new issue on Zorro repository with the name of the new detector or test
 
 To contribute a new detector:
 
-1. Check the structure a new detector should follow  in `Guidelines/template.py`.
+1. Check the structure a new detector should follow  in `guidelines/template.py`.
 
 2. Add your modified `template.py` file inside the detectors directory.
 
