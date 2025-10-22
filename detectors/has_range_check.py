@@ -3,23 +3,16 @@ from visitor import Visitor
 
 
 class Signal():
-    name = ""
-    has_range_check = False
-    has_less_than = False
-    is_input = False
-    node = None
-    is_used_in_substraction = False
 
     def __init__(self, name, signal_type, node):
         self.name = name
+        self.has_range_check = False
         self.is_input = signal_type == "input"
         self.node = node
+        self.is_used_in_substraction = False
 
     def has_range(self):
         self.has_range_check = True
-
-    def has_less_than(self):
-        self.has_less_than_check = True
 
     def is_used_in_subs(self):
         self.is_used_in_substraction = True

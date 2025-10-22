@@ -65,7 +65,7 @@ class Analyzer:
     def lint_file(self, filename, lints: list[Visitor], print_output: bool, leading: int, trailing: int):
 
         if print_output:
-            LIGHT_ORANGE = "\033[38;5;215m"  # Light orange
+            LIGHT_ORANGE = "\033[38;5;215m"
             RESET = "\033[0m"
 
             if self.isatty:
