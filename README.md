@@ -37,6 +37,7 @@ example:
 ## Detectors
 1. Bad practices
 2. Arithmetic Over/Under Flows
+3. Underconstrained Circuits
 
 
 | Detector | Bug Type | Test Cases |
@@ -44,3 +45,4 @@ example:
 | [to_do_comment](detectors/to_do_comment.py) | 1 | [1](tests/product_proof.circom) |
 | [has_range_check](detectors/has_range_check.py) | 2 | [1](tests/insecure_substraction.circom) |
 | [has_less_than_check](detectors/has_less_than_check.py) | 2 | [1](tests/has_range_but_no_less.circom) |
+| [assigned_but_no_constrained](detectors/assigned_but_no_constrained.py) | 3 | [1](tests/tests/under_constrained.circom.circom) |

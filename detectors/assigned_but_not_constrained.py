@@ -3,9 +3,7 @@ from visitor import Visitor
 
 
 class Signal():
-    def __init__(self, name, node):
-        self.name = name              # Signal identifier
-        self.node = node
+    def __init__(self, node):
 
         # Constraints
         self.is_constrained = False
@@ -22,7 +20,7 @@ class Signal():
         self.is_constrained = True
 
 
-class AssignedButNotConstrainedDetector(Visitor):
+class AssignedButNotConstrained(Visitor):
     """
     Detects signals that are assigned using <-- but never constrained.
 
@@ -59,7 +57,7 @@ class AssignedButNotConstrainedDetector(Visitor):
             if node.grammar_name == "signal_declaration_statement":
                 signal_name = self.extract_signal_name(node)
                 if signal_name:
-                    self.signals[signal_name] = Signal(signal_name, node)
+                    self.signals[signal_name] = Signal(node)
 
         # Second pass: Track constraints and assignments
         elif run_number > 4:
