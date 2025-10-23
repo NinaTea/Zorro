@@ -7,6 +7,10 @@
 This is a work in progress, feel free to contribute!
 - [Guidelines](Guidelines/guidelines.md)
 
+# In the near future:
+
+- Proper testing of detectors (add known vulnerable circuits and analyze detection scope and false positives).
+- Add proper detector documentation: implementation details, vulnerabilities to check, and remediation.
 
 # Acknowledgements
 
