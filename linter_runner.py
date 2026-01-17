@@ -1,9 +1,6 @@
-import tree_sitter_circom as tscircom
 from node_iterator import NodeIterator
 from visitor import Visitor
 from tree_sitter import Language, Parser, Tree, Node
-
-import re
 
 CIRCOM = Language(
     "tree-sitter-circom/build/lib.linux-x86_64-cpython-310/tree_sitter_circom/_binding.abi3.so", "circom")
